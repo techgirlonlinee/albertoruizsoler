@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container:first-child {
+    width: 75%;
+}
+
+.container:last-child {
+    width: 25%;
+}
+
+.other-case-studies, .dance-case-studies {
+  list-style: none;
+  padding: 0;
+}
+
+/* Set the grid layout for "Dance Works" */
+.dance-case-studies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* three columns */
+  gap: 0px;
+  width: 100%; /* takes the remaining 75% of the width */
+}
+
+h2 {
+font-size: 1rem;
+font-weight: 400;
+text-transform: uppercase;
+color: #868686;
+}
+
+ul {
+    margin-top: 0.15rem;
+}
+
+a {
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+ 
+@media (max-width: 900px) {
+    .case-study-list {
+        flex-direction: column-reverse;
+    }
+    .container:first-child, .container:last-child {
+        width: 100%;
+    }
+    .dance-case-studies {
+        width:100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+    }
+    .case-study-list {
+        flex-direction: column-reverse;
+    }
+    .dance-case-studies {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

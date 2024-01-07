@@ -1,0 +1,86 @@
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.rich-text {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 2rem;
+}
+
+.rich-text p {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.rich-text ul {
+    margin: 1rem 0;
+}
+
+.rich-text li {
+    margin: -1rem 0;
+}
+
+.multimedia {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.multimedia iframe, .multimedia img {
+    margin-bottom: 1rem; /* Adjust this value as needed */
+}
+
+.multimedia :last-child {
+    margin-bottom: 0;
+}
+
+/* Style for video iframes (Vimeo and YouTube) */
+.multimedia .video-iframe {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Auto height to maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+}
+
+/* Optionally, for browsers that don't support aspect-ratio property */
+.multimedia .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    margin-bottom: 2rem;
+}
+
+.multimedia .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.multimedia :last-child {
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+    .rich-text {
+        width: 80%;
+    }
+    .multimedia {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 500px) { 
+    .rich-text {
+        width: 100%;
+        margin-right: 0;
+    }
+}

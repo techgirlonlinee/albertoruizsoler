@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { createClient } from 'contentful';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CaseStudyPage from './CaseStudyPage';
+import HomePage from './HomePage';
+import AboutPage from './AboutPage'; 
+import NavBar from './NavBar';
+import Footer from './Footer';
+import CaseStudyList from './CaseStudyList';
+import CalendarPage from './CalendarPage'; // Adjust the path if necessary
+
+
+const client = createClient({
+  space: 'mxksqz6xacu8',
+  accessToken: 'hiqfdonBO13xEAIK2sT3eEc-wERXsl4v3gAxPeLuDEw'
+});
 
 function App() {
+  const [portfolioItems, setPortfolioItems] = useState({ featured: [], dance: [], other: [] });
+
+  useEffect(() => {
+    client.getEntries({ content_type: 'caseStudy' })
+      .then((response) => {
+        const featured = response.items.filter(item => item.fields.isFeatured);
+        const dance = response.items.filter(item => item.fields.isDance);
+        const other = response.items.filter(item => !item.fields.isDance);
+
+        setPortfolioItems({
+          featured: featured,
+          dance: dance,
+          other: other
+        });
+      })
+      .catch(console.error);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <div>
+        <Routes>
+          <Route path="/" element={<HomePage featuredItems={portfolioItems.featured} />} />
+          <Route path="/case-study/:id" element={<CaseStudyPage portfolioItems={[...portfolioItems.dance, ...portfolioItems.other]} />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+        <div class="case-study-section">
+          <h3>Index</h3>
+          <div class="case-study-list">
+          <CaseStudyList categoryTitle="Dance & theatre" items={portfolioItems.dance} />
+          <CaseStudyList categoryTitle="Audiovisual works" items={portfolioItems.other} />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 

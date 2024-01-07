@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+
+.weird-font {
+    font-family: 'Rock 3D', system-ui;
+    letter-spacing: -0.65rem;
+    font-size: min(max(2.2rem, calc(2rem + ((1vw - 0.2rem) * 3))), 6rem);
+    text-transform: lowercase;
+}
+
+@media (max-width: 1020px) {
+    .weird-font {
+        /* font-size: 4rem; */
+        /* font-size: 3rem; */
+    }
+}

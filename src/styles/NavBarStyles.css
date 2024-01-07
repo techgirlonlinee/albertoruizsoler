@@ -1,0 +1,49 @@
+/* NavBarStyles.css */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* nav h1 {
+  margin-right: auto;
+} */
+
+
+nav h1 {
+  text-align: right; /* Align text to the right */
+  white-space: nowrap; /* Ensure the name is on a single line */
+}
+
+nav .word {
+  display: flex;
+}
+
+nav .trans {
+  color: transparent;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+nav ul li {
+  display: flex;
+  margin-right: 10px;
+  text-align: right;
+  margin-right: 0;
+}
+
+.active-link {
+  text-decoration: line-through;
+}
+
+a {
+  color: black;
+  text-transform: uppercase;
+}

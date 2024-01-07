@@ -1,0 +1,27 @@
+.about-text {
+    width: 50%;
+    max-width: 740px;
+}
+
+.about-text p {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 1200px) { 
+    .about-text {
+        width: 65%;
+    }
+}
+
+@media (max-width: 900px) { 
+    .about-text {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) { 
+    .about-text {
+        width: 100%;
+    }
+}
