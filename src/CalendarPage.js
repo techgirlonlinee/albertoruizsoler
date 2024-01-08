@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { createClient } from 'contentful';
 import './styles/CalendarPage.css'; // Make sure the path is correct
 
+// Use environment variables for space ID and access token
+const spaceId = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
+const accessToken = process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN;
+
 const client = createClient({
-    space: 'mxksqz6xacu8',
-    accessToken: 'hiqfdonBO13xEAIK2sT3eEc-wERXsl4v3gAxPeLuDEw'
+    space: spaceId,
+    accessToken: accessToken
 });
 
 function CalendarPage() {

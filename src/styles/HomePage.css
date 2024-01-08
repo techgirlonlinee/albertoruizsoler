@@ -23,7 +23,9 @@
   
   .image-container {
     width: auto;
-    height: 55vh;
+    /* height: 55vh; */
+    height: auto; 
+    aspect-ratio: 16 / 9;
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image in the container */
     overflow: hidden; /* Hide parts of the image that overflow the container */
