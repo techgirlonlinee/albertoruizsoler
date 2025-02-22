@@ -7,9 +7,16 @@ const spaceId = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
 const accessToken = process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN;
 
 const client = createClient({
-    space: spaceId,
-    accessToken: accessToken
+  space: spaceId,
+  accessToken: accessToken
 });
+
+
+// const client = createClient({
+//     space: "mxksqz6xacu8", 
+//     accessToken: "hiqfdonBO13xEAIK2sT3eEc-wERXsl4v3gAxPeLuDEw"
+// });
+
 
 function CalendarPage() {
   const [projects, setProjects] = useState([]);
