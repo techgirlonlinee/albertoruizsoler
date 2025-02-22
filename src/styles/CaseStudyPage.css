@@ -64,6 +64,35 @@
     margin-bottom: 0;
 }
 
+a:hover {
+    text-decoration: line-through;
+}
+
+a.header-link:hover,
+a.weird-font:hover, a:hover .image-text .image-description  {
+    text-decoration: none !important;
+}
+
+a:hover .image-text p{
+    text-decoration: line-through;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Prevents image distortion */
+    object-fit: contain; /* Ensures the entire image is visible */
+    display: block; /* Fixes any inline spacing issues */
+  }
+  
+
 
 @media (max-width: 900px) {
     .content {
@@ -76,6 +105,9 @@
         width: 100%;
         margin-top: 1rem;
     }
+    .image-container {
+        height: 100% !important;
+        }
 }
 
 @media (max-width: 500px) { 
@@ -83,4 +115,5 @@
         width: 100%;
         margin-right: 0;
     }
+   
 }

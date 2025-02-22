@@ -25,48 +25,52 @@ function CaseStudyPage({ portfolioItems }) {
   return (
     <div>
       <h1>{caseStudy.fields.title}</h1>
-      <div class="content">
-        <div class="rich-text">{documentToReactComponents(caseStudy.fields.description)}</div> {/* Render Rich Text */}
-            <div class="multimedia">
-{/* Render SoundCloud Tracks */}
-{caseStudy.fields.soundcloudlink && caseStudy.fields.soundcloudlink.map((link, index) => (
-  <iframe 
-      key={index}
-      width="100%"
-      height="166" // Fixed height for SoundCloud
-      scrolling="no" 
-      frameBorder="no" 
-      allow="autoplay" 
-      src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(link)}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
-      title="SoundCloud Audio"
-  ></iframe>
-))}
-            {/* Render Images */}
-            {caseStudy.fields.media && caseStudy.fields.media.map((image, index) => (
-            <img 
-                key={index} 
+      <div className="content">
+        <div className="rich-text">{documentToReactComponents(caseStudy.fields.description)}</div> {/* Render Rich Text */}
+
+        <div className="multimedia">
+          {/* Render SoundCloud Tracks */}
+          {caseStudy.fields.soundcloudlink && caseStudy.fields.soundcloudlink.map((link, index) => (
+            <iframe 
+              key={index}
+              width="100%"
+              height="166" // Fixed height for SoundCloud
+              scrolling="no" 
+              frameBorder="no" 
+              allow="autoplay" 
+              src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(link)}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
+              title="SoundCloud Audio"
+            ></iframe>
+          ))}
+
+          {/* Render Images with Descriptions */}
+          {caseStudy.fields.media && caseStudy.fields.media.map((image, index) => (
+            <div key={index} >
+              <div className="image-container">
+              <img 
                 src={image.fields.file.url} 
-                alt={image.fields.title || 'Case Study Image'} 
-            />
-            ))}
-
-            {/* Render Vimeo Videos */}
-{caseStudy.fields.videolink && caseStudy.fields.videolink.map((link, index) => (
-  <div className="video-wrapper" key={index}>
-    <iframe 
-        className="video-iframe"
-        src={`https://player.vimeo.com/video/${extractVimeoID(link)}`} 
-        frameBorder="0"
-        allow="autoplay; fullscreen" 
-        allowFullScreen
-    ></iframe>
-  </div>
-))}
-
-
-
-
+                alt={image.fields.description || 'Case Study Image'} 
+              />
             </div>
+            {image.fields.description && (
+                <p className="image-description">{image.fields.description}</p>
+              )}
+            </div>
+          ))}
+
+          {/* Render Vimeo Videos */}
+          {caseStudy.fields.videolink && caseStudy.fields.videolink.map((link, index) => (
+            <div className="video-wrapper" key={index}>
+              <iframe 
+                className="video-iframe"
+                src={`https://player.vimeo.com/video/${extractVimeoID(link)}`} 
+                frameBorder="0"
+                allow="autoplay; fullscreen" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
