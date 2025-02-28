@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from 'contentful';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // ✅ Use HashRouter for GitHub Pages
 import CaseStudyPage from './CaseStudyPage';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage'; 
 import NavBar from './NavBar';
 import Footer from './Footer';
 import CaseStudyList from './CaseStudyList';
-import CalendarPage from './CalendarPage'; // Adjust the path if necessary
+import CalendarPage from './CalendarPage';
 
-// Use environment variables for space ID and access token
+// ✅ Use environment variables for Contentful API credentials
 const spaceId = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
 const accessToken = process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN;
 
 const client = createClient({
-    space: spaceId,
-    accessToken: accessToken
+  space: spaceId,
+  accessToken: accessToken
 });
 
 function App() {
@@ -28,14 +28,10 @@ function App() {
         const dance = response.items.filter(item => item.fields.isDance);
         const other = response.items.filter(item => !item.fields.isDance);
 
-        setPortfolioItems({
-          featured: featured,
-          dance: dance,
-          other: other
-        });
+        setPortfolioItems({ featured, dance, other });
       })
       .catch(console.error);
-  }, []);
+  }, []); // ✅ Only run once when the component mounts
 
   return (
     <Router>
@@ -43,15 +39,17 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<HomePage featuredItems={portfolioItems.featured} />} />
-          <Route path="/case-study/:id" element={<CaseStudyPage portfolioItems={[...portfolioItems.dance, ...portfolioItems.other]} />} />
+          <Route path="/case-study/:id" element={<CaseStudyPage portfolioItems={[...portfolioItems.featured, ...portfolioItems.dance, ...portfolioItems.other]} />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
-        <div class="case-study-section">
+
+        {/* ✅ Fixed class -> className */}
+        <div className="case-study-section">
           <h3>Index</h3>
-          <div class="case-study-list">
-          <CaseStudyList categoryTitle="Dance & theatre" items={portfolioItems.dance} />
-          <CaseStudyList categoryTitle="Audiovisual works" items={portfolioItems.other} />
+          <div className="case-study-list">
+            <CaseStudyList categoryTitle="Dance & Theatre" items={portfolioItems.dance} />
+            <CaseStudyList categoryTitle="Audiovisual Works" items={portfolioItems.other} />
           </div>
         </div>
       </div>
