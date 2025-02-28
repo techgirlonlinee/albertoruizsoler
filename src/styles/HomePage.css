@@ -86,4 +86,6 @@
     h1 {
       font-size: 2rem;
     }
+    .featured-item img {
+      display: flex;}
   }
