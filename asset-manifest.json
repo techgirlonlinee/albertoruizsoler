@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/albertoruizsoler/static/css/main.58e1b178.css",
+    "main.css": "/albertoruizsoler/static/css/main.66335cb0.css",
     "main.js": "/albertoruizsoler/static/js/main.ed2b1164.js",
     "static/js/787.a2059655.chunk.js": "/albertoruizsoler/static/js/787.a2059655.chunk.js",
     "index.html": "/albertoruizsoler/index.html",
-    "main.58e1b178.css.map": "/albertoruizsoler/static/css/main.58e1b178.css.map",
+    "main.66335cb0.css.map": "/albertoruizsoler/static/css/main.66335cb0.css.map",
     "main.ed2b1164.js.map": "/albertoruizsoler/static/js/main.ed2b1164.js.map",
     "787.a2059655.chunk.js.map": "/albertoruizsoler/static/js/787.a2059655.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.58e1b178.css",
+    "static/css/main.66335cb0.css",
     "static/js/main.ed2b1164.js"
   ]
 }
