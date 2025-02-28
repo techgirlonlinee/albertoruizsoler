@@ -33,13 +33,13 @@ function CaseStudyPage({ portfolioItems }) {
           {caseStudy.fields.soundcloudlink && caseStudy.fields.soundcloudlink.map((link, index) => (
             <iframe 
               key={index}
+              title={`SoundCloud Audio ${index}`} // ✅ Unique title for each iframe
               width="100%"
-              height="166" // Fixed height for SoundCloud
+              height="166"
               scrolling="no" 
               frameBorder="no" 
               allow="autoplay" 
               src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(link)}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`}
-              title="SoundCloud Audio"
             ></iframe>
           ))}
 
@@ -63,11 +63,13 @@ function CaseStudyPage({ portfolioItems }) {
             <div className="video-wrapper" key={index}>
               <iframe 
                 className="video-iframe"
+                title={`Vimeo Video ${index}`} // ✅ Unique title for each iframe
                 src={`https://player.vimeo.com/video/${extractVimeoID(link)}`} 
                 frameBorder="0"
                 allow="autoplay; fullscreen" 
                 allowFullScreen
               ></iframe>
+
             </div>
           ))}
         </div>
