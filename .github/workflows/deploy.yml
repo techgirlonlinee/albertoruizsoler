@@ -1,0 +1,36 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Runs when you push to 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Inject GitHub Secrets into Environment
+        run: |
+          echo "REACT_APP_CONTENTFUL_SPACE_ID=${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_CONTENTFUL_ACCESS_TOKEN=${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
