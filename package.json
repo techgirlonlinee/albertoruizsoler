@@ -2,7 +2,7 @@
   "name": "alberto-ruiz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://techgirlonlinee.github.io/albertoruizsoler",
+  "homepage": "https://albertoruizsoler.com",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.19.0",
     "@testing-library/jest-dom": "^5.17.0",
