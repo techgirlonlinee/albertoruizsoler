@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main # Runs when you push to 'main'
+      - main
 
 jobs:
   build:
@@ -19,18 +19,17 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
-
-      - name: Inject GitHub Secrets into Environment
-        run: |
-          echo "REACT_APP_CONTENTFUL_SPACE_ID=${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}" >> $GITHUB_ENV
-          echo "REACT_APP_CONTENTFUL_ACCESS_TOKEN=${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}" >> $GITHUB_ENV
+        run: npm ci
 
       - name: Build React App
         run: npm run build
+        env:
+          REACT_APP_CONTENTFUL_SPACE_ID: ${{ secrets.REACT_APP_CONTENTFUL_SPACE_ID }}
+          REACT_APP_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESS_TOKEN }}
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           branch: gh-pages
           folder: build
+
