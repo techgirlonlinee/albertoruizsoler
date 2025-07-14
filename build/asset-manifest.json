@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/alberto-ruiz/static/css/main.58e1b178.css",
-    "main.js": "/alberto-ruiz/static/js/main.5fecebf2.js",
-    "static/js/787.a2059655.chunk.js": "/alberto-ruiz/static/js/787.a2059655.chunk.js",
-    "index.html": "/alberto-ruiz/index.html",
-    "main.58e1b178.css.map": "/alberto-ruiz/static/css/main.58e1b178.css.map",
-    "main.5fecebf2.js.map": "/alberto-ruiz/static/js/main.5fecebf2.js.map",
-    "787.a2059655.chunk.js.map": "/alberto-ruiz/static/js/787.a2059655.chunk.js.map"
+    "main.css": "/albertoruizsoler/static/css/main.66335cb0.css",
+    "main.js": "/albertoruizsoler/static/js/main.d8f6fa97.js",
+    "static/js/787.a2059655.chunk.js": "/albertoruizsoler/static/js/787.a2059655.chunk.js",
+    "index.html": "/albertoruizsoler/index.html",
+    "main.66335cb0.css.map": "/albertoruizsoler/static/css/main.66335cb0.css.map",
+    "main.d8f6fa97.js.map": "/albertoruizsoler/static/js/main.d8f6fa97.js.map",
+    "787.a2059655.chunk.js.map": "/albertoruizsoler/static/js/787.a2059655.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.58e1b178.css",
-    "static/js/main.5fecebf2.js"
+    "static/css/main.66335cb0.css",
+    "static/js/main.d8f6fa97.js"
   ]
 }
