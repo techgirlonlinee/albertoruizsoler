@@ -13,6 +13,20 @@
 .rich-text p {
     width: 100%;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.rich-text b {
+    margin-right: 1rem;
+    /* margin-left: 1rem; */
+}
+
+.rich-text a {
+    margin-right: 1rem;
+}
+
+.rich-text u {
+    margin-left: 0.5rem;
 }
 
 .rich-text ul {
